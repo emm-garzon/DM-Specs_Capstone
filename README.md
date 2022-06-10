@@ -5,7 +5,7 @@ Using HTML Canvas to render graphics, and ReactJS to build out the UI, 'SWORDS, 
 # Main Features (game-logic):
 
 - Player can drag, and drop tiles, attempting to create matches that satisfy the following: 3 (or 4) tiles match in a row OR 3 (or 4) tiles match in a column
-- When the tile-set is first generated, a check will be conducted to see if any matches exist, if so those tiles will be replaced, and points awarded to the player
+- When the tile-set is first generated, a check will be conducted to see if any matches exist, if so, those tiles will be replaced, and points awarded to the player
 - When the player successfully matches 3 tiles together, they will be awarded 2 points
 - When the player successfully matches 4 tiles together, they will be awarded 3 points
 
@@ -34,4 +34,5 @@ Using HTML Canvas to render graphics, and ReactJS to build out the UI, 'SWORDS, 
 
 * Tables contain data
 * Connects to server
+
 # DM-Specs_Capstone
