@@ -15,7 +15,7 @@ Using HTML Canvas to render graphics, and ReactJS to build out the UI, 'SWORDS, 
 - In addition to their scores, players will be encouraged to add initials (max character count: 3) to display next to their score
 - Only the top 10 scores will automatically display on the 'HIGH SCORE' board
 
-# Will satisfy the following conditions:
+Will satisfy the following conditions:
 
 - # Front-End:
 
