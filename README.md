@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# CAPSTONE || Web Development Specialization
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Using HTML Canvas to render graphics, and ReactJS to build out the UI, 'SWORDS, SORCERY, and SUCH' is a match-3 game where the player's objective is to drag tiles across the game board and create matches of 3 or 4 tiles.
 
-## Available Scripts
+# Main Features (game-logic):
 
-In the project directory, you can run:
+- Player can drag, and drop tiles, attempting to create matches that satisfy the following: 3 (or 4) tiles match in a row OR 3 (or 4) tiles match in a column
+- When the tile-set is first generated, a check will be conducted to see if any matches exist, if so those tiles will be replaced, and points awarded to the player
+- When the player successfully matches 3 tiles together, they will be awarded 2 points
+- When the player successfully matches 4 tiles together, they will be awarded 3 points
 
-### `npm start`
+# Additional Features:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Scores can be manually saved to a database
+- In addition to their scores, players will be encouraged to add initials (max character count: 3) to display next to their score
+- Only the top 10 scores will automatically display on the 'HIGH SCORE' board
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Will satisfy the following conditions:
 
-### `npm test`
+- Front-End:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Has 3-5 interactive features
+* Communicates with server
+* Stores values on state
+* Uses values from state to display information and/or make requests
+* Includes custom styling
 
-### `npm run build`
+- Server:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Handles requests
+* Sends responses
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Database:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Tables contain data
+* Connects to server
+# DM-Specs_Capstone
