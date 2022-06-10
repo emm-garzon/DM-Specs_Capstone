@@ -17,7 +17,7 @@ Using HTML Canvas to render graphics, and ReactJS to build out the UI, 'SWORDS, 
 
 # Will satisfy the following conditions:
 
-- Front-End:
+- # Front-End:
 
 * Has 3-5 interactive features
 * Communicates with server
@@ -25,12 +25,12 @@ Using HTML Canvas to render graphics, and ReactJS to build out the UI, 'SWORDS, 
 * Uses values from state to display information and/or make requests
 * Includes custom styling
 
-- Server:
+- # Server:
 
 * Handles requests
 * Sends responses
 
-- Database:
+- # Database:
 
 * Tables contain data
 * Connects to server
