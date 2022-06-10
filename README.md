@@ -1,6 +1,6 @@
 # CAPSTONE || Web Development Specialization
 
-Using HTML Canvas to render graphics, and ReactJS to build out the UI, 'SWORDS, SORCERY, and SUCH' is a match-3 game where the player's objective is to drag tiles across the game board and create matches of 3 or 4 tiles.
+Using HTML Canvas to render graphics, and ReactJS to build out the UI, **'SWORDS, SORCERY, and SUCH'** is a match-3 game where the player's objective is to drag tiles across the game board and create matches of 3 or 4 tiles.
 
 # Main Features (game-logic):
 
