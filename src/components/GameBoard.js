@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 
 const width = 8;
+
 // tiles are stored as an array
+
 const gameTiles = ["blue", "green", "orange", "purple", "red", "yellow"];
 
 const GameBoard = () => {
   // using state to store tile arrangement
+
   const [currentTileArrangement, setCurrentTileArrangement] = useState([]);
 
   // checks to determine if COLUMN of 3 or 4 matching tiles exists in current iteration of tile arrangement -- NOTE: checking for matches of 4 first, as matches of 3 may potentially be matches of 4 tiles (order determined in useEffect below)
@@ -79,7 +82,29 @@ const GameBoard = () => {
     }
   };
 
+  // if a there is an empty space in the tile arrangement, move the tile directly above one space down
+
+  const moveIntoSpaceBelow = () => {
+    for (let i = 0; i < 64 - width; i++) {
+      const firstRow = [0, 1, 2, 3, 4, 5, 6, 7];
+      const isFirstRow = firstRow.includes(i);
+
+      if (isFirstRow && currentTileArrangement[i] === "") {
+        let randomNumber = Math.floor(Math.random() * gameTiles.length);
+        currentTileArrangement[i] = gameTiles[randomNumber];
+      }
+    }
+
+    for (let i = 0; i < 64 - width; i++) {
+      if (currentTileArrangement[i + width] === "") {
+        currentTileArrangement[i + width] = currentTileArrangement[i];
+        currentTileArrangement[i] = "";
+      }
+    }
+  };
+
   // using Math.random to select a random tile from the array; used to construct primary tile sequence (game board)
+
   const createBoard = () => {
     const randomTileArrangement = [];
 
@@ -92,18 +117,22 @@ const GameBoard = () => {
   };
 
   // hooks in place to regulate the amount of time certain functions are triggered, in this case, limit the createBoard function to 1x upon loading of the web app
+
   useEffect(() => {
     createBoard();
   }, []);
 
   // in this case, useEffect is employed to force a match-check every 100ms
+
   useEffect(() => {
     const timer = setInterval(() => {
       // checks are ordered purposely for check for matches of 4, BEFORE matches of 3
+
       checkForColumnOfFour();
       checkForRowOfFour();
       checkForColumnOfThree();
       checkForRowOfThree();
+      moveIntoSpaceBelow();
       setCurrentTileArrangement([...currentTileArrangement]);
     }, 100);
     return () => clearInterval(timer);
@@ -112,23 +141,25 @@ const GameBoard = () => {
     checkForRowOfFour,
     checkForColumnOfThree,
     checkForRowOfThree,
+    moveIntoSpaceBelow,
     currentTileArrangement,
   ]);
 
   console.log(currentTileArrangement);
 
   // in the return method, employing .map to iterate over the tile arranagement generated to display each tile in order on screen
+
   return (
-    <div className="app">
+    <d iv className="app">
       <div className="game">
         {currentTileArrangement.map((gameTile, index) => (
           <img key={index} style={{ backgroundColor: gameTile }}></img>
         ))}
       </div>
-    </div>
+    </d>
   );
 };
 
 export default GameBoard;
 
-// 42:33
+// 48:43
