@@ -6,6 +6,21 @@ const gameTiles = ["blue", "green", "orange", "purple", "red", "yellow"];
 const GameBoard = () => {
   const [currentTileArrangement, setCurrentTileArrangement] = useState([]);
 
+  const checkForColumnOfThree = () => {
+    for (let i = 0; i < 47; i++) {
+      const columnOfThree = [i, i + width, i + width * 2];
+      const decidedTile = currentTileArrangement[i];
+
+      if (
+        columnOfThree.every(
+          (tile) => currentTileArrangement[tile] === decidedTile
+        )
+      ) {
+        columnOfThree.forEach((tile) => (currentTileArrangement[tile] = ""));
+      }
+    }
+  };
+
   const createBoard = () => {
     const randomTileArrangement = [];
 
@@ -20,6 +35,14 @@ const GameBoard = () => {
   useEffect(() => {
     createBoard();
   }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      checkForColumnOfThree();
+      setCurrentTileArrangement([...currentTileArrangement]);
+    }, 100);
+    return () => clearInterval(timer);
+  }, [checkForColumnOfThree, currentTileArrangement]);
 
   console.log(currentTileArrangement);
 
@@ -36,4 +59,4 @@ const GameBoard = () => {
 
 export default GameBoard;
 
-// 23:14
+// 35:35
