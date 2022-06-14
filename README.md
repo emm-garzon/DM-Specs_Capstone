@@ -1,6 +1,8 @@
 # CAPSTONE || Web Development Specialization
 
-Using HTML Canvas to render graphics, and ReactJS to build out the UI, **'SWORDS, SORCERY, and SUCH'** is a match-3 game where the player's objective is to drag tiles across the game board and create matches of 3 or 4 tiles.
+Using ReactJS to house game components, and build out the overall UI, **'SWORDS, SORCERY, and SUCCOTASH'** is a match-3 game where the player's objective is to drag tiles across the game board and create matches of 3 or 4 tiles. All game logic is written in vanilla JavaScript, without the use or aid of a gaming library (ie. Kaboom) or a gaming framework (ie. Phaser).
+
+_NOTE: I am not against use of such technologies - they were simply not employed in the construction of this project._
 
 # Main Features (game-logic):
 
