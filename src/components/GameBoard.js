@@ -11,10 +11,15 @@ const GameBoard = () => {
 
   const [currentTileArrangement, setCurrentTileArrangement] = useState([]);
 
+  // save information about each tile to state
+
+  const [tileBeingDragged, setTileBeingDragged] = useState(null);
+  const [tileBeingReplaced, setTileBeingReplaced] = useState(null);
+
   // checks to determine if COLUMN of 3 or 4 matching tiles exists in current iteration of tile arrangement -- NOTE: checking for matches of 4 first, as matches of 3 may potentially be matches of 4 tiles (order determined in useEffect below)
 
   const checkForColumnOfFour = () => {
-    for (let i = 0; i < 39; i++) {
+    for (let i = 0; i <= 39; i++) {
       const columnOfFour = [i, i + width, i + width * 2, i + width * 3];
       const decidedTile = currentTileArrangement[i];
 
@@ -29,7 +34,7 @@ const GameBoard = () => {
   };
 
   const checkForColumnOfThree = () => {
-    for (let i = 0; i < 47; i++) {
+    for (let i = 0; i <= 47; i++) {
       const columnOfThree = [i, i + width, i + width * 2];
       const decidedTile = currentTileArrangement[i];
 
@@ -85,7 +90,7 @@ const GameBoard = () => {
   // if a there is an empty space in the tile arrangement, move the tile directly above one space down
 
   const moveIntoSpaceBelow = () => {
-    for (let i = 0; i < 64 - width; i++) {
+    for (let i = 0; i <= 55; i++) {
       const firstRow = [0, 1, 2, 3, 4, 5, 6, 7];
       const isFirstRow = firstRow.includes(i);
 
@@ -93,14 +98,39 @@ const GameBoard = () => {
         let randomNumber = Math.floor(Math.random() * gameTiles.length);
         currentTileArrangement[i] = gameTiles[randomNumber];
       }
-    }
 
-    for (let i = 0; i < 64 - width; i++) {
       if (currentTileArrangement[i + width] === "") {
         currentTileArrangement[i + width] = currentTileArrangement[i];
         currentTileArrangement[i] = "";
       }
     }
+  };
+
+  // defining the 'drag' parameters
+
+  const dragStart = (e) => {
+    console.log(e.target);
+    console.log("drag start");
+    setTileBeingDragged(e.target);
+  };
+
+  const dragDrop = (e) => {
+    console.log(e.target);
+    console.log("drag drop");
+    setTileBeingReplaced(e.target);
+  };
+
+  const dragEnd = (e) => {
+    console.log("drag end");
+
+    const tileBeingDraggedId = parseInt(
+      tileBeingDragged.getAttribute("data-id")
+    );
+    const tileBeingReplacedId = parseInt(
+      tileBeingReplaced.getAttribute("data-id")
+    );
+
+    console.log(tileBeingDraggedId, tileBeingReplacedId);
   };
 
   // using Math.random to select a random tile from the array; used to construct primary tile sequence (game board)
@@ -145,21 +175,33 @@ const GameBoard = () => {
     currentTileArrangement,
   ]);
 
-  console.log(currentTileArrangement);
+  // console.log(currentTileArrangement);
 
   // in the return method, employing .map to iterate over the tile arranagement generated to display each tile in order on screen
 
   return (
-    <d iv className="app">
+    <div className="app">
       <div className="game">
         {currentTileArrangement.map((gameTile, index) => (
-          <img key={index} style={{ backgroundColor: gameTile }}></img>
+          <img
+            key={index}
+            alt={gameTile}
+            style={{ backgroundColor: gameTile }}
+            data-id={index}
+            draggable={true}
+            onDragStart={dragStart}
+            onDragOver={(e) => e.preventDefault()}
+            onDragEnter={(e) => e.preventDefault()}
+            onDragLeave={(e) => e.preventDefault()}
+            onDrop={dragDrop}
+            onDragEnd={dragEnd}
+          />
         ))}
       </div>
-    </d>
+    </div>
   );
 };
 
 export default GameBoard;
 
-// 48:43
+// 58:51
