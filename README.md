@@ -37,3 +37,7 @@ _NOTE: I am not against use of such technologies - they were simply not employed
 
 - Tables contain data
 - Connects to server
+
+## Data Model:
+
+![data-model](./data-model.jpg)
