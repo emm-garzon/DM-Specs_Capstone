@@ -29,6 +29,7 @@ const GameBoard = () => {
         )
       ) {
         columnOfFour.forEach((tile) => (currentTileArrangement[tile] = ""));
+        return true;
       }
     }
   };
@@ -44,6 +45,7 @@ const GameBoard = () => {
         )
       ) {
         columnOfThree.forEach((tile) => (currentTileArrangement[tile] = ""));
+        return true;
       }
     }
   };
@@ -65,6 +67,7 @@ const GameBoard = () => {
         rowOfFour.every((tile) => currentTileArrangement[tile] === decidedTile)
       ) {
         rowOfFour.forEach((tile) => (currentTileArrangement[tile] = ""));
+        return true;
       }
     }
   };
@@ -83,6 +86,7 @@ const GameBoard = () => {
         rowOfThree.every((tile) => currentTileArrangement[tile] === decidedTile)
       ) {
         rowOfThree.forEach((tile) => (currentTileArrangement[tile] = ""));
+        return true;
       }
     }
   };
@@ -130,7 +134,43 @@ const GameBoard = () => {
       tileBeingReplaced.getAttribute("data-id")
     );
 
-    console.log(tileBeingDraggedId, tileBeingReplacedId);
+    currentTileArrangement[tileBeingReplacedId] =
+      tileBeingDragged.style.backgroundColor;
+    currentTileArrangement[tileBeingDraggedId] =
+      tileBeingReplaced.style.backgroundColor;
+
+    // defining 'valid' moves; without this sequence, players can freely move tiles anywhere on the board regardless of their origin or whether or not they are creating a match
+
+    const validMoveSet = [
+      tileBeingDraggedId - 1,
+      tileBeingDraggedId - width,
+      tileBeingDraggedId + 1,
+      tileBeingDraggedId + width,
+    ];
+
+    const validMove = validMoveSet.includes(tileBeingReplacedId);
+
+    const isAColumnOfFour = checkForColumnOfFour();
+    const isARowOfFour = checkForRowOfFour();
+    const isAColumnOfThree = checkForColumnOfThree();
+    const isARowOfThree = checkForRowOfThree();
+
+    if (
+      tileBeingReplacedId &&
+      validMove &&
+      (isAColumnOfFour || isARowOfFour || isAColumnOfThree || isARowOfThree)
+    ) {
+      setTileBeingDragged(null);
+      setTileBeingReplaced(null);
+    } else {
+      currentTileArrangement[tileBeingReplacedId] =
+        tileBeingReplaced.style.backgroundColor;
+      currentTileArrangement[tileBeingDraggedId] =
+        tileBeingDragged.style.backgroundColor;
+      setCurrentTileArrangement([...currentTileArrangement]);
+    }
+
+    // console.log(tileBeingDraggedId, tileBeingReplacedId);
   };
 
   // using Math.random to select a random tile from the array; used to construct primary tile sequence (game board)
@@ -204,4 +244,4 @@ const GameBoard = () => {
 
 export default GameBoard;
 
-// 58:51
+// 1:07:20
