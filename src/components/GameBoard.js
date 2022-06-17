@@ -1,10 +1,29 @@
 import React, { useEffect, useState } from "react";
 
+import blueGem from "../images/blue-gem.png";
+import greenGem from "../images/green-gem.png";
+import orangeGem from "../images/orange-gem.png";
+import purpleGem from "../images/purple-gem.png";
+import redGem from "../images/red-gem.png";
+import yellowGem from "../images/yellow-gem.png";
+import swordGem from "../images/sword-gem.png";
+import succotashGem from "../images/succotash-gem.png";
+import blank from "../images/blank.png";
+
 const width = 8;
 
 // tiles are stored as an array
 
-const gameTiles = ["blue", "green", "orange", "purple", "red", "yellow"];
+const gameTiles = [
+  blueGem,
+  greenGem,
+  orangeGem,
+  purpleGem,
+  redGem,
+  yellowGem,
+  swordGem,
+  succotashGem,
+];
 
 const GameBoard = () => {
   // using state to store tile arrangement
@@ -28,7 +47,7 @@ const GameBoard = () => {
           (tile) => currentTileArrangement[tile] === decidedTile
         )
       ) {
-        columnOfFour.forEach((tile) => (currentTileArrangement[tile] = ""));
+        columnOfFour.forEach((tile) => (currentTileArrangement[tile] = blank));
         return true;
       }
     }
@@ -44,7 +63,7 @@ const GameBoard = () => {
           (tile) => currentTileArrangement[tile] === decidedTile
         )
       ) {
-        columnOfThree.forEach((tile) => (currentTileArrangement[tile] = ""));
+        columnOfThree.forEach((tile) => (currentTileArrangement[tile] = blank));
         return true;
       }
     }
@@ -66,7 +85,7 @@ const GameBoard = () => {
       if (
         rowOfFour.every((tile) => currentTileArrangement[tile] === decidedTile)
       ) {
-        rowOfFour.forEach((tile) => (currentTileArrangement[tile] = ""));
+        rowOfFour.forEach((tile) => (currentTileArrangement[tile] = blank));
         return true;
       }
     }
@@ -85,7 +104,7 @@ const GameBoard = () => {
       if (
         rowOfThree.every((tile) => currentTileArrangement[tile] === decidedTile)
       ) {
-        rowOfThree.forEach((tile) => (currentTileArrangement[tile] = ""));
+        rowOfThree.forEach((tile) => (currentTileArrangement[tile] = blank));
         return true;
       }
     }
@@ -98,14 +117,14 @@ const GameBoard = () => {
       const firstRow = [0, 1, 2, 3, 4, 5, 6, 7];
       const isFirstRow = firstRow.includes(i);
 
-      if (isFirstRow && currentTileArrangement[i] === "") {
+      if (isFirstRow && currentTileArrangement[i] === blank) {
         let randomNumber = Math.floor(Math.random() * gameTiles.length);
         currentTileArrangement[i] = gameTiles[randomNumber];
       }
 
-      if (currentTileArrangement[i + width] === "") {
+      if (currentTileArrangement[i + width] === blank) {
         currentTileArrangement[i + width] = currentTileArrangement[i];
-        currentTileArrangement[i] = "";
+        currentTileArrangement[i] = blank;
       }
     }
   };
@@ -135,9 +154,9 @@ const GameBoard = () => {
     );
 
     currentTileArrangement[tileBeingReplacedId] =
-      tileBeingDragged.style.backgroundColor;
+      tileBeingDragged.getAttribute("src");
     currentTileArrangement[tileBeingDraggedId] =
-      tileBeingReplaced.style.backgroundColor;
+      tileBeingReplaced.getAttribute("src");
 
     // defining 'valid' moves; without this sequence, players can freely move tiles anywhere on the board regardless of their origin or whether or not they are creating a match
 
@@ -164,9 +183,9 @@ const GameBoard = () => {
       setTileBeingReplaced(null);
     } else {
       currentTileArrangement[tileBeingReplacedId] =
-        tileBeingReplaced.style.backgroundColor;
+        tileBeingReplaced.getAttribute("src");
       currentTileArrangement[tileBeingDraggedId] =
-        tileBeingDragged.style.backgroundColor;
+        tileBeingDragged.getAttribute("src");
       setCurrentTileArrangement([...currentTileArrangement]);
     }
 
@@ -225,8 +244,8 @@ const GameBoard = () => {
         {currentTileArrangement.map((gameTile, index) => (
           <img
             key={index}
+            src={gameTile}
             alt={gameTile}
-            style={{ backgroundColor: gameTile }}
             data-id={index}
             draggable={true}
             onDragStart={dragStart}
@@ -244,4 +263,4 @@ const GameBoard = () => {
 
 export default GameBoard;
 
-// 1:07:20
+// 1:11:52
