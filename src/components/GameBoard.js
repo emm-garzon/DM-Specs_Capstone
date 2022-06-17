@@ -17,10 +17,10 @@ const width = 8;
 const gameTiles = [
   blueGem,
   greenGem,
-  orangeGem,
+  //  orangeGem,
   purpleGem,
   redGem,
-  yellowGem,
+  //  yellowGem,
   swordGem,
   succotashGem,
 ];
