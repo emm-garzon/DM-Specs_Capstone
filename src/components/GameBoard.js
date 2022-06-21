@@ -17,7 +17,7 @@ const width = 8;
 const gameTiles = [
   blueGem,
   greenGem,
-  //  orangeGem,
+  // orangeGem,
   purpleGem,
   redGem,
   //  yellowGem,
@@ -25,7 +25,7 @@ const gameTiles = [
   succotashGem,
 ];
 
-const GameBoard = () => {
+const GameBoard = ({ scoreDisplay, setScoreDisplay }) => {
   // using state to store tile arrangement
 
   const [currentTileArrangement, setCurrentTileArrangement] = useState([]);
@@ -35,18 +35,24 @@ const GameBoard = () => {
   const [tileBeingDragged, setTileBeingDragged] = useState(null);
   const [tileBeingReplaced, setTileBeingReplaced] = useState(null);
 
+  // using state to store a value for player's score
+
+  // const [scoreDisplay, setScoreDisplay] = useState(0);
+
   // checks to determine if COLUMN of 3 or 4 matching tiles exists in current iteration of tile arrangement -- NOTE: checking for matches of 4 first, as matches of 3 may potentially be matches of 4 tiles (order determined in useEffect below)
 
   const checkForColumnOfFour = () => {
     for (let i = 0; i <= 39; i++) {
       const columnOfFour = [i, i + width, i + width * 2, i + width * 3];
       const decidedTile = currentTileArrangement[i];
+      const isBlank = currentTileArrangement[i] === blank;
 
       if (
         columnOfFour.every(
-          (tile) => currentTileArrangement[tile] === decidedTile
+          (tile) => currentTileArrangement[tile] === decidedTile && !isBlank
         )
       ) {
+        setScoreDisplay((score) => score + 3);
         columnOfFour.forEach((tile) => (currentTileArrangement[tile] = blank));
         return true;
       }
@@ -57,12 +63,14 @@ const GameBoard = () => {
     for (let i = 0; i <= 47; i++) {
       const columnOfThree = [i, i + width, i + width * 2];
       const decidedTile = currentTileArrangement[i];
+      const isBlank = currentTileArrangement[i] === blank;
 
       if (
         columnOfThree.every(
-          (tile) => currentTileArrangement[tile] === decidedTile
+          (tile) => currentTileArrangement[tile] === decidedTile && !isBlank
         )
       ) {
+        setScoreDisplay((score) => score + 2);
         columnOfThree.forEach((tile) => (currentTileArrangement[tile] = blank));
         return true;
       }
@@ -79,12 +87,16 @@ const GameBoard = () => {
         5, 6, 7, 13, 14, 15, 21, 22, 23, 29, 30, 31, 37, 38, 39, 45, 46, 47, 53,
         54, 55, 62, 63, 64,
       ];
+      const isBlank = currentTileArrangement[i] === blank;
 
       if (notValid.includes(i)) continue;
 
       if (
-        rowOfFour.every((tile) => currentTileArrangement[tile] === decidedTile)
+        rowOfFour.every(
+          (tile) => currentTileArrangement[tile] === decidedTile && !isBlank
+        )
       ) {
+        setScoreDisplay((score) => score + 3);
         rowOfFour.forEach((tile) => (currentTileArrangement[tile] = blank));
         return true;
       }
@@ -98,12 +110,16 @@ const GameBoard = () => {
       const notValid = [
         6, 7, 14, 15, 22, 23, 30, 31, 38, 39, 46, 47, 54, 55, 63, 64,
       ];
+      const isBlank = currentTileArrangement[i] === blank;
 
       if (notValid.includes(i)) continue;
 
       if (
-        rowOfThree.every((tile) => currentTileArrangement[tile] === decidedTile)
+        rowOfThree.every(
+          (tile) => currentTileArrangement[tile] === decidedTile && !isBlank
+        )
       ) {
+        setScoreDisplay((score) => score + 2);
         rowOfThree.forEach((tile) => (currentTileArrangement[tile] = blank));
         return true;
       }
@@ -263,6 +279,4 @@ const GameBoard = () => {
 
 export default GameBoard;
 
-// 1:11:52
-
-// comment for test
+// 1:19:44
