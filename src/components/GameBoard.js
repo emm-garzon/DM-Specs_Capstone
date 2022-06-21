@@ -250,8 +250,6 @@ const GameBoard = ({ scoreDisplay, setScoreDisplay }) => {
     currentTileArrangement,
   ]);
 
-  // console.log(currentTileArrangement);
-
   // in the return method, employing .map to iterate over the tile arranagement generated to display each tile in order on screen
 
   return (
