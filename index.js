@@ -1,27 +1,51 @@
-const PORT = 8000;
 const axios = require("axios");
 const express = require("express");
+const cors = require("cors");
 const app = express();
+app.use(cors());
+require("dotenv").config();
+const PORT = process.env.PORT;
 
-const url =
-  "https://037496ab-9790-46a7-a6d2-471c56681b14-us-east1.apps.astra.datastax.com/api/rest/v2/namespaces/highscores/collections/scores?page-size=10";
+app.use(express.json());
+
+const url = process.env.URL;
 
 app.get("/", (req, res) => {
   res.json("Successfully connected to server!");
 });
 
-// make a request to DB for ALL scores available
+// make a GET request to DB for ALL scores available
 app.get("/scores", (req, res) => {
   const options = {
     method: "GET",
     headers: {
       Accepts: "application/json",
-      "X-Cassandra-Token":
-        "AstraCS:TYpCuZIwXWWIhaAlFoFbTuQO:2cd20cdece4bbfcd30d939d663691902a5cd3f34d709da94a693f3a2eefd030f",
+      "X-Cassandra-Token": process.env.ASTRA_TOKEN,
     },
   };
 
-  axios(url, options)
+  axios(`${url}?page-size=10`, options)
+    .then((response) => res.status(200).json(response.data))
+    .catch((err) => res.status(500).json({ message: err }));
+});
+
+// make a POST request to DB to store scores from the front-end
+app.post("/postscore", (req, res) => {
+  const testData = {
+    username: "Tron",
+    score: 50,
+  };
+
+  const options = {
+    method: "POST",
+    headers: {
+      Accepts: "application/json",
+      "X-Cassandra-Token": process.env.ASTRA_TOKEN,
+      "Content-Type": "application/json",
+    },
+    data: testData,
+  };
+  axios(`${url}`, options)
     .then((response) => res.status(200).json(response.data))
     .catch((err) => res.status(500).json({ message: err }));
 });
@@ -30,4 +54,4 @@ app.listen(PORT, () =>
   console.log(`The server is running successfully on PORT: ${PORT}`)
 );
 
-// 23:47
+// 32:11
