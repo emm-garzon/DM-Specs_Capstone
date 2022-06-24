@@ -8,8 +8,8 @@ _NOTE: I am not against use of such technologies - they were simply not employed
 
 - Player can drag, and drop tiles, attempting to create matches that satisfy the following conditions: 3 (or 4) tiles match in a ROW OR 3 (or 4) tiles match in a COLUMN
 - When the tile-set is first generated, a check will be conducted to see if any matches exist, if so, those tiles will be replaced, and points awarded to the player
-- When the player successfully matches 3 tiles together, they will be awarded 2 points
-- When the player successfully matches 4 tiles together, they will be awarded 3 points
+- When the player successfully matches 3 tiles together, they will be awarded 1 point
+- When the player successfully matches 4 tiles together, they will be awarded 2 points
 
 # Additional Features:
 
