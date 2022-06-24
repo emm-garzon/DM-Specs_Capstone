@@ -32,6 +32,7 @@ const playerNickNames = [
 
 const ScoreBoard = ({ score }) => {
   const [data, setData] = useState(null);
+  const [playerName, setPlayerName] = useState(null);
 
   // make request for all available scores
   const fetchScores = async () => {
@@ -53,7 +54,12 @@ const ScoreBoard = ({ score }) => {
 
   useEffect(() => {
     fetchScores();
+    setPlayerName(
+      playerNickNames[Math.floor(Math.random() * playerNickNames.length)]
+    );
   }, []);
+
+  console.log(playerName);
 
   return (
     <div className="score-board">
