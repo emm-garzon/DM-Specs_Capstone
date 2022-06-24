@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+const playerNickNames = [];
+
 const ScoreBoard = ({ score }) => {
   const [data, setData] = useState(null);
 
@@ -36,4 +38,4 @@ const ScoreBoard = ({ score }) => {
 
 export default ScoreBoard;
 
-// 38:56
+// 39:33
