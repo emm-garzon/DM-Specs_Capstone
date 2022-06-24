@@ -30,7 +30,7 @@ app.get("/scores", (req, res) => {
 });
 
 // make a POST request to DB to store scores from the front-end
-app.post("/postscore", (req, res) => {
+app.post("/addscore", (req, res) => {
   const testData = {
     username: "Tron",
     score: 50,
@@ -45,6 +45,7 @@ app.post("/postscore", (req, res) => {
     },
     data: testData,
   };
+
   axios(`${url}`, options)
     .then((response) => res.status(200).json(response.data))
     .catch((err) => res.status(500).json({ message: err }));
