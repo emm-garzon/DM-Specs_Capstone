@@ -71,4 +71,4 @@ const ScoreBoard = ({ score }) => {
 
 export default ScoreBoard;
 
-// 39:33
+// 41:48
