@@ -1,7 +1,34 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const playerNickNames = [];
+const playerNickNames = [
+  "MnOfStl",
+  "DrkKngt",
+  "TrtlPwr",
+  "RdRngr",
+  "GrnRngr",
+  "JdiKngt",
+  "SthLrd",
+  "ImGroot",
+  "DoULift",
+  "GoDogGo",
+  "UMadBro",
+  "UrAWzrd",
+  "IHrtBcn",
+  "MmmCake",
+  "GooglIt",
+  "GtSmrt",
+  "OtSdeThBx",
+  "SnkEyes",
+  "StrmShdw",
+  "ThnkYu",
+  "PnkyBrn",
+  "GldDggr",
+  "AbstlPwr",
+  "ThOneRng",
+  "InftyBynd",
+  "SlyFx",
+];
 
 const ScoreBoard = ({ score }) => {
   const [data, setData] = useState(null);
