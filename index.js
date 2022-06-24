@@ -54,5 +54,3 @@ app.post("/addscore", (req, res) => {
 app.listen(PORT, () =>
   console.log(`The server is running successfully on PORT: ${PORT}`)
 );
-
-// 32:11
