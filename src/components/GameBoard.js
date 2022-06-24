@@ -52,7 +52,7 @@ const GameBoard = ({ scoreDisplay, setScoreDisplay }) => {
           (tile) => currentTileArrangement[tile] === decidedTile && !isBlank
         )
       ) {
-        setScoreDisplay((score) => score + 3);
+        setScoreDisplay((score) => score + 2);
         columnOfFour.forEach((tile) => (currentTileArrangement[tile] = blank));
         return true;
       }
@@ -70,7 +70,7 @@ const GameBoard = ({ scoreDisplay, setScoreDisplay }) => {
           (tile) => currentTileArrangement[tile] === decidedTile && !isBlank
         )
       ) {
-        setScoreDisplay((score) => score + 2);
+        setScoreDisplay((score) => score + 1);
         columnOfThree.forEach((tile) => (currentTileArrangement[tile] = blank));
         return true;
       }
@@ -96,7 +96,7 @@ const GameBoard = ({ scoreDisplay, setScoreDisplay }) => {
           (tile) => currentTileArrangement[tile] === decidedTile && !isBlank
         )
       ) {
-        setScoreDisplay((score) => score + 3);
+        setScoreDisplay((score) => score + 2);
         rowOfFour.forEach((tile) => (currentTileArrangement[tile] = blank));
         return true;
       }
@@ -119,7 +119,7 @@ const GameBoard = ({ scoreDisplay, setScoreDisplay }) => {
           (tile) => currentTileArrangement[tile] === decidedTile && !isBlank
         )
       ) {
-        setScoreDisplay((score) => score + 2);
+        setScoreDisplay((score) => score + 1);
         rowOfThree.forEach((tile) => (currentTileArrangement[tile] = blank));
         return true;
       }
