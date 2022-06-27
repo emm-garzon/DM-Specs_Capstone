@@ -26,32 +26,42 @@ const playerNickNames = [
   "GldDggr",
   "AbstlPwr",
   "ThOneRng",
-  "InftyBynd",
+  "Infty&Bynd",
   "SlyFx",
   "OptmsPrm",
   "StrScrm",
 ];
 
 const ScoreBoard = ({ score }) => {
-  const [data, setData] = useState(null);
+  const [savedScores, setSavedScores] = useState(null);
   const [playerName, setPlayerName] = useState(null);
 
   // make request for all available scores
   const fetchScores = async () => {
     const response = await axios.get("http://localhost:8000/scores");
-    setData(response.data.data);
+    // response returns as an object, to be able to iterate over them, we need to put them in an array
+    const data = Object.keys(response.data.data).map(
+      (item) => response.data.data[item]
+    );
+    setSavedScores(data);
   };
 
-  console.log(data);
+  console.log(savedScores);
 
   // request to save current player score to db
   const saveData = async () => {
+    const data = {
+      username: playerName,
+      score: score,
+    };
+
     axios
-      .post("http://localhost:8000/addscore")
+      .post("http://localhost:8000/addscore", data)
       .then((response) => {
         console.log(response);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .then(fetchScores);
   };
 
   useEffect(() => {
@@ -63,16 +73,24 @@ const ScoreBoard = ({ score }) => {
 
   console.log(playerName);
 
+  const gameScoresDesc = savedScores?.sort((a, b) => b.score - a.score);
+
   return (
     <div className="score-board">
       <h2>
         Current Player: {playerName} Score: {score}
       </h2>
+      <h2>High Scores:</h2>
+      {gameScoresDesc?.map((savedScores, index) => (
+        <div key={{ index }}>
+          <h3>
+            {savedScores.username}: {savedScores.score}
+          </h3>
+        </div>
+      ))}
       <button onClick={saveData}>Save Score</button>
     </div>
   );
 };
 
 export default ScoreBoard;
-
-// 42:17

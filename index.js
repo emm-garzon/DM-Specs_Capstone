@@ -31,10 +31,12 @@ app.get("/scores", (req, res) => {
 
 // make a POST request to DB to store scores from the front-end
 app.post("/addscore", (req, res) => {
-  const testData = {
-    username: "Tron",
-    score: 50,
-  };
+  const requestContent = req.body;
+
+  // const testData = {
+  //   username: "Tron",
+  //   score: 50,
+  // };
 
   const options = {
     method: "POST",
@@ -43,7 +45,7 @@ app.post("/addscore", (req, res) => {
       "X-Cassandra-Token": process.env.ASTRA_TOKEN,
       "Content-Type": "application/json",
     },
-    data: testData,
+    data: requestContent,
   };
 
   axios(`${url}`, options)
