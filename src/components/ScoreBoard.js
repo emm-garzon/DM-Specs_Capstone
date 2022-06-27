@@ -12,7 +12,7 @@ const playerNickNames = [
   "ImGroot",
   "DoULift",
   "GoDogGo",
-  "UMadBro",
+  "YUMadBro",
   "UrAWzrd",
   "IHrtBcn",
   "MmmCake",
@@ -22,12 +22,14 @@ const playerNickNames = [
   "SnkEyes",
   "StrmShdw",
   "ThnkYu",
-  "PnkyBrn",
+  "Pnky&ThBrn",
   "GldDggr",
   "AbstlPwr",
   "ThOneRng",
   "InftyBynd",
   "SlyFx",
+  "OptmsPrm",
+  "StrScrm",
 ];
 
 const ScoreBoard = ({ score }) => {
@@ -63,7 +65,9 @@ const ScoreBoard = ({ score }) => {
 
   return (
     <div className="score-board">
-      <h2>{score}</h2>
+      <h2>
+        Current Player: {playerName} Score: {score}
+      </h2>
       <button onClick={saveData}>Save Score</button>
     </div>
   );
@@ -71,4 +75,4 @@ const ScoreBoard = ({ score }) => {
 
 export default ScoreBoard;
 
-// 41:48
+// 42:17
