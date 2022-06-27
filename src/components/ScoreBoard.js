@@ -75,6 +75,10 @@ const ScoreBoard = ({ score }) => {
 
   const gameScoresDesc = savedScores?.sort((a, b) => b.score - a.score);
 
+  const refreshPage = () => {
+    window.location.reload(true);
+  };
+
   return (
     <div className="score-board">
       <h2>
@@ -88,7 +92,14 @@ const ScoreBoard = ({ score }) => {
           </h3>
         </div>
       ))}
-      <button onClick={saveData}>Save Score</button>
+      <button
+        onClick={() => {
+          saveData();
+          refreshPage();
+        }}
+      >
+        Save Score
+      </button>
     </div>
   );
 };
