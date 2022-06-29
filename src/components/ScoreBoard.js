@@ -2,34 +2,30 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const playerNickNames = [
-  "MnOfStl",
-  "DrkKngt",
-  "TrtlPwr",
-  "RdRngr",
-  "GrnRngr",
-  "JdiKngt",
-  "SthLrd",
-  "ImGroot",
-  "DoULift",
-  "GoDogGo",
-  "YUMadBro",
-  "UrAWzrd",
-  "IHrtBcn",
-  "MmmCake",
-  "GooglIt",
-  "GtSmrt",
-  "OtSdeThBx",
-  "SnkEyes",
-  "StrmShdw",
-  "ThnkYu",
-  "Pnky&ThBrn",
-  "GldDggr",
-  "AbstlPwr",
-  "ThOneRng",
-  "Infty&Bynd",
-  "SlyFx",
-  "OptmsPrm",
-  "StrScrm",
+  "BBB",
+  "CCC",
+  "DDD",
+  "EEE",
+  "FFF",
+  "GGG",
+  "HHH",
+  "III",
+  "JJJ",
+  "LLL",
+  "MMM",
+  "NNN",
+  "OOO",
+  "PPP",
+  "QQQ",
+  "RRR",
+  "SSS",
+  "TTT",
+  "UUU",
+  "VVV",
+  "WWW",
+  "XXX",
+  "YYY",
+  "ZZZ",
 ];
 
 const ScoreBoard = ({ score }) => {
@@ -81,17 +77,18 @@ const ScoreBoard = ({ score }) => {
 
   return (
     <div className="score-board">
-      <h2>
-        Current Player: {playerName} Score: {score}
-      </h2>
-      <h2>High Scores:</h2>
-      {gameScoresDesc?.map((savedScores, index) => (
-        <div key={{ index }}>
-          <h3>
-            {savedScores.username}: {savedScores.score}
-          </h3>
-        </div>
-      ))}
+      <h2>Score:</h2>
+      <p>{score}</p>
+      <h2>High Scores</h2>
+      <p>
+        {gameScoresDesc?.map((savedScores, index) => (
+          <div key={{ index }}>
+            <h3>
+              {savedScores.username} {savedScores.score}
+            </h3>
+          </div>
+        ))}
+      </p>
       <button
         onClick={() => {
           saveData();
