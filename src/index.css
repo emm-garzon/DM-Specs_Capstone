@@ -55,3 +55,19 @@
 .saveScore-btn:hover {
   cursor: pointer;
 }
+
+/* GameCard */
+
+.gameCardOne {
+  height: 50vh;
+}
+
+.gameCardTwo {
+  height: 50vh;
+}
+
+/* ArcadeMachine */
+
+.arcade-machine {
+  height: 100vh;
+}
