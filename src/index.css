@@ -1,3 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+.main-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Gameboard */
+
 .app {
   display: flex;
   padding: 30px;
@@ -13,4 +22,36 @@
 .game img {
   width: 70px;
   height: 70px;
+}
+
+/* Scoreboard */
+
+.score-board {
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+}
+
+.score-value {
+  font-size: 50px;
+}
+
+.highScore-username {
+  margin-right: 25px;
+}
+
+.highScore-value {
+  margin-left: 25px;
+}
+
+.saveScore-btn {
+  font-family: "Press Start 2P", cursive;
+  color: white;
+  background-color: black;
+  padding: 10px 25px;
+  margin-top: 15px;
+  border-radius: 10px;
+}
+
+.saveScore-btn:hover {
+  cursor: pointer;
 }

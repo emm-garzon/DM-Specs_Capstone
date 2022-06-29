@@ -77,19 +77,17 @@ const ScoreBoard = ({ score }) => {
 
   return (
     <div className="score-board">
-      <h2>Score:</h2>
-      <p>{score}</p>
-      <h2>High Scores</h2>
-      <p>
-        {gameScoresDesc?.map((savedScores, index) => (
-          <div key={{ index }}>
-            <h3>
-              {savedScores.username} {savedScores.score}
-            </h3>
-          </div>
-        ))}
-      </p>
+      <h3 className="score-label">Score:</h3>
+      <p className="score-value">{score}</p>
+      <h3 className="highScore-label">High Scores</h3>
+      {gameScoresDesc?.map((savedScores, index) => (
+        <div key={{ index }}>
+          <span className="highScore-username">{savedScores.username}</span>
+          <span className="highScore-value">{savedScores.score}</span>
+        </div>
+      ))}
       <button
+        className="saveScore-btn"
         onClick={() => {
           saveData();
           refreshPage();
