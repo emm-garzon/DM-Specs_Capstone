@@ -12,16 +12,20 @@ const App = () => {
 
   return (
     <div className="main-wrapper">
-      <div>
+      <div className="left-panel">
         <AboutGameCard gameCard={gameCardUno} />
         <AboutGameCard gameCard={gameCardDos} />
       </div>
-      <ArcadeMachine />
-      {/* <GameBoard
-        scoreDisplay={scoreDisplay}
-        setScoreDisplay={setScoreDisplay}
-      /> */}
-      <ScoreBoard score={scoreDisplay} />
+      <div className="center-panel">
+        <ArcadeMachine />
+        <GameBoard
+          scoreDisplay={scoreDisplay}
+          setScoreDisplay={setScoreDisplay}
+        />
+      </div>
+      <div className="right-panel">
+        <ScoreBoard score={scoreDisplay} />
+      </div>
     </div>
   );
 };

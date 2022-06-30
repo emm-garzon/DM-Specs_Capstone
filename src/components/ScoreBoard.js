@@ -81,7 +81,7 @@ const ScoreBoard = ({ score }) => {
       <p className="score-value">{score}</p>
       <h3 className="highScore-label">High Scores</h3>
       {gameScoresDesc?.map((savedScores, index) => (
-        <div key={{ index }}>
+        <div className="highScore-values" key={{ index }}>
           <span className="highScore-username">{savedScores.username}</span>
           <span className="highScore-value">{savedScores.score}</span>
         </div>
