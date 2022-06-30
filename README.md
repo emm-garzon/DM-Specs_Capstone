@@ -41,3 +41,5 @@ _NOTE: I am not against use of such technologies - they were simply not employed
 ## Data Model:
 
 ![data-model](./data-model.jpg)
+
+**Background Image provided by: https://unsplash.com/@carltraw **

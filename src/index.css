@@ -1,7 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 body {
-  background-color: rgba(0, 0, 0);
+  /* background-color: rgba(0, 0, 0); */
+  background-image: url("images/carl-raw-unsplash-02.jpg");
+  height: 100vh;
+  background-position: center center;
+  background-size: cover;
+  backdrop-filter: blur(4px);
+  margin: 0px;
 }
 
 .main-wrapper {
@@ -16,8 +22,10 @@ body {
   display: flex;
   padding: 30px;
   position: absolute;
-  top: 250px;
-  left: 715px;
+  top: 28vh;
+  left: 38.25vw;
+  /* top: 275px;
+  left: 740px; */
   border: 2px solid white;
   padding: 0;
   border-radius: 5px;
