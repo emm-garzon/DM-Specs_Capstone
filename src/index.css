@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 body {
-  background-color: aqua;
+  background-color: rgba(0, 0, 0);
 }
 
 .main-wrapper {
@@ -30,13 +30,14 @@ body {
 .game img {
   width: 70px;
   height: 70px;
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
 /* Scoreboard */
 
 .score-board {
   font-family: "Press Start 2P", cursive;
+  color: rgba(255, 255, 255);
   text-align: center;
   position: fixed;
   top: 30%;
@@ -72,6 +73,7 @@ body {
   font-family: "Press Start 2P", cursive;
   color: white;
   background-color: black;
+  border: 2px solid white;
   padding: 10px 25px;
   margin-top: 15px;
   border-radius: 10px;
@@ -79,6 +81,8 @@ body {
 
 .saveScore-btn:hover {
   cursor: pointer;
+  color: black;
+  background-color: white;
 }
 
 /* GameCard */
