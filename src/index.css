@@ -16,8 +16,11 @@ body {
   display: flex;
   padding: 30px;
   position: absolute;
-  top: 225px;
-  left: 690px;
+  top: 250px;
+  left: 715px;
+  border: 2px solid white;
+  padding: 0;
+  border-radius: 5px;
 }
 
 .game {
@@ -30,7 +33,7 @@ body {
 .game img {
   width: 70px;
   height: 70px;
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(0, 0, 0, 0.45);
 }
 
 /* Scoreboard */
