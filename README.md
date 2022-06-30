@@ -42,4 +42,6 @@ _NOTE: I am not against use of such technologies - they were simply not employed
 
 ![data-model](./data-model.jpg)
 
-**Background Image provided by: https://unsplash.com/@carltraw **
+**Additional Information**
+
+Background Images provided by: https://unsplash.com/@carltraw
