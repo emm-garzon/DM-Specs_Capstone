@@ -18,29 +18,34 @@ body {
 
 /* Gameboard */
 
+.center-panel {
+  position: relative;
+}
+
 .app {
   display: flex;
   padding: 30px;
   position: absolute;
-  top: 28vh;
-  left: 38.25vw;
+  top: 25%;
+  left: 14.5%;
   /* top: 275px;
   left: 740px; */
-  border: 2px solid whitesmoke;
-  padding: 2.5px;
-  border-radius: 5px;
 }
 
 .game {
-  width: 560px;
-  height: 560px;
+  width: 85%;
+  /* width: 560px;
+  height: 560px; */
   display: flex;
   flex-wrap: wrap;
+  /* border: 2px solid whitesmoke;
+  border-radius: 5px; */
 }
 
 .game img {
-  width: 70px;
-  height: 70px;
+  width: 12%;
+  /* width: 70px;
+  height: 70px; */
   background-color: rgba(0, 0, 0, 0.45);
 }
 

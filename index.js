@@ -24,7 +24,7 @@ app.get("/scores", (req, res) => {
     },
   };
 
-  axios(`${url}?page-size=10`, options)
+  axios(`${url}?page-size=5`, options)
     .then((response) => res.status(200).json(response.data))
     .catch((err) => res.status(500).json({ message: err }));
 });
